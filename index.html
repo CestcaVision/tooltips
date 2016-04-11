@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div style = 'width:100px;height:100px;border:1px red solid' >
+      <p><strong id="word">龙</strong>是一种未名的生物</p>
+    </div>
+    <div id='tooltip' style= 'width:200px;height:50px;border:1px black dotted;display:none'>龙：一种未名的生物</div>
+    <script type="text/javascript">
+      var word = document.getElementById('word');
+      var tooltip = document.getElementById('tooltip');
+      var timer;
+      word.onmouseover = function(){
+        tooltip.style.display ='block'
+      }
+      word.onmouseout = function(){
+        timer=setTimeout(function(){
+            tooltip.style.display = 'none'
+        },500)
+      }
+      tooltip.onmouseover = function(){
+        clearTimeout(timer)
+      }
+      tooltip.onmouseout = function (){
+        setTimeout(function(){
+          tooltip.style.display = 'none'
+        },500)
+      }
+    </script>
+  </body>
+</html>
